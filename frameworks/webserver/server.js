@@ -3,7 +3,12 @@ export default function serverConfig(app,mongoose,config){
 
 
   // Connect to MongoDB
-  mongoose.connect('mongodb+srv://sajith:nnBzi1Pz39Mj69aF@cluster0.m8hdckt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+  mongoose.connect('mongodb+srv://sajith:nnBzi1Pz39Mj69aF@cluster0.m8hdckt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', 
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    tlsCAFile: '/path/to/ca.pem', 
+    tlsAllowInvalidCertificates: false,
+    serverSelectionTimeoutMS: 5000);
   12
   // Get the default connection
   const db = mongoose.connection;
