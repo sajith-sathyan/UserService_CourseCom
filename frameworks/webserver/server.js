@@ -1,13 +1,7 @@
 export default function serverConfig(app, mongoose, config) {
   const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://sajith:oFIh5e5rezmAuppY@cluster0.kkkbpdh.mongodb.net/myDatabase?retryWrites=true&w=majority&tls=true';
 
-  mongoose.connect(mongoUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    tlsCAFile: '/path/to/ca.pem', // Path to CA certificate if needed
-    tlsAllowInvalidCertificates: false, // Adjust based on your security needs
-    serverSelectionTimeoutMS: 5000
-  });
+  mongoose.connect(mongoUri);
 
   const db = mongoose.connection;
 
