@@ -1,5 +1,5 @@
 export default function serverConfig(app, mongoose, config) {
-  const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://sajith:oFIh5e5rezmAuppY@cluster0.kkkbpdh.mongodb.net/myDatabase?retryWrites=true&w=majority&tls=true';
+  const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://sajithsathyandeveloper:Yk86JAy2gtcSbHD1@cluster0.pxpagjq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
   mongoose.connect(mongoUri);
 
