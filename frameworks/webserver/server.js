@@ -3,35 +3,11 @@ export default function serverConfig(app,mongoose,config){
 
 
   // Connect to MongoDB
-  mongoose.connect('mongodb+srv://sajith:nnBzi1Pz39Mj69aF@cluster0.m8hdckt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', 
- 
+  mongoose.connect('', 
 
-  // Get the default connection
-  const db = mongoose.connection;
-  
-  // Event handling for successful connection
-  db.on('connected', () => {
-    console.log('Connected to MongoDB');
-  });
-  
-  // Event handling for connection error
-  db.on('error', (err) => {
-    console.error(`MongoDB connection error: ${err}`);
-  });
-  
-  // Event handling for disconnection
-  db.on('disconnected', () => {
-    console.log('Disconnected from MongoDB');
-  });
-  
-  // Close the MongoDB connection when the Node process is terminated
-  process.on('SIGINT', () => {
-    db.close(() => {
-      console.log('MongoDB connection closed through app termination');
-      process.exit(0);
-    });
-  });
-  
+  mongoose.connect('mongodb+srv://sajith:nnBzi1Pz39Mj69aF@cluster0.m8hdckt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Error connecting to MongoDB:', err));
       function startServer(){
           app.listen(config.port,()=>{
               console.log(`UserAuth Server Start At port${config.port}`)
